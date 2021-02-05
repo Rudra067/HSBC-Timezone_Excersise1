@@ -6,7 +6,7 @@ export default function TimeZone({ zoneName }) {
     const [date, setDate] = useState('');
 
     // Get the timezone for the respective zone and set date and time
-    function getTimeZone() {
+    function getTimeZone(zoneName) {
         fetch(`http://api.timezonedb.com/v2/get-time-zone?key=XWSLLPX5RMIZ&format=json&by=zone&zone=${zoneName}`)
         .then(response => response.json())
         .then(res => {
@@ -19,13 +19,13 @@ export default function TimeZone({ zoneName }) {
     //  Calls the api and sets the interval for 5 sec while mounting and
     //  clears the interval while unmounting
     useEffect(() => {
-        getTimeZone();
-        const updateTimeInterval = setInterval(getTimeZone, 5000);
+        getTimeZone(zoneName);
+        const updateTimeInterval = setInterval(getTimeZone(zoneName), 5000);
 
         return () => {
             clearInterval(updateTimeInterval);
         }
-    }, [])
+    }, [zoneName])
    return (
        <div className="time-container">
            <span><b>Date:</b> {date}</span>

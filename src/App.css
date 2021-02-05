@@ -49,6 +49,14 @@ h2{
   text-align: center;
 }
 
+.time-container span:first-child {
+  padding-right: 5%
+}
+
+.timezone-section {
+  text-align: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

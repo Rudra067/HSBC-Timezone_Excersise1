@@ -1,5 +1,5 @@
 import './App.css';
-import ZoneList from './ZoneList';
+import ZoneList from './components/ZoneList';
 
 function App() {
   return (
